@@ -111,8 +111,10 @@ export function Search({ loading, effects }: Props) {
               return a.effect.localeCompare(b.effect);
             })
             .map(({ power, cast, times, effect }) => (
-              <Text key={`${power}.${cast}`}
-                style={power % 5 === 0 ? { fontWeight: "bold" } : { fontSize: "88%" }} >
+              <Text
+                key={`${power}.${cast}`}
+                fontWeight={power % 5 === 0 ? undefined : "thin"}
+              >
                 Power: {power}, Cast: {cast}
                 {selectedEffects.length > 0 && ` for ${effect}`}
                 {times > 1 ? ` (x${times})` : ""}
